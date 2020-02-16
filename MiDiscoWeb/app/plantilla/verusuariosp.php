@@ -9,6 +9,12 @@ ob_start();
 	<h1 class="paginas">Usuarios</h1>
 	<table id="verusuarios">
 		<tr>
+		
+			<th>ID</th>
+			<th>NOMBRE</th>
+			<th>CORREO</th>
+			<th>TIPO</th>
+			<th>ESTADO</th>
 <?php
 $auto = $_SERVER['PHP_SELF'];
 // identificador => Nombre, email, plan y Estado
@@ -37,7 +43,7 @@ $auto = $_SERVER['PHP_SELF'];
 
 	<br>
 	<form action='index.php'>
-		<input type='button' value='Cerrar sesiÃ³n' onclick="cerrarSesion()">
+		<input type='button' value='Cerrar sesión' onclick="cerrarSesion()">
 		<input type='button' value='Nuevo usuario' onclick="altaUsuario()">
 		
 	</form>

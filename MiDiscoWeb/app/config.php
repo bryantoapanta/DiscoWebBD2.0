@@ -9,10 +9,10 @@ define('FILE','app/dat/ficheros.json');
 // Ruta donde se guardan los archivos de los usuarios
 // Tiene que tener permiso 777 o permitir a Apache rwx
 define('RUTA_UBUNTU', "/home/alummo2019-20/Escritorio/prueba/");
-define('RUTA_WINDOWS',"C:\Users\Bryan\Desktop\Prueba\\");
+define('RUTA_WINDOWS',"C:/Users/Bryan/Desktop/Prueba/");
 
 // (0-BÃƒÂ¡sico |1-Profesional |2- Premium| 3- MÃƒÂ¡ster)
-const  PLANES = ['BÁsico','Profesional','Premium','Máster'];
+const  PLANES = ['Básico','Profesional','Premium','Máster'];
 //  Estado: (A-Activo | B-Bloqueado |I-Inactivo )
 const  ESTADOS = ['A' => 'Activo','B' =>'Bloqueado', 'I' => 'Inactivo']; 
 
@@ -34,7 +34,7 @@ define ('DBPASSWORD','');
 //define('FILEUSERSEGUR','app/dat/usuariossegur.json');
 // Ruta donde se guardan los archivos de los usuarios
 // Tiene que tener permiso 777 o permitir cambiar a usuario Apache
-//define('RUTA_FICHEROS','app/dat');
+define('RUTA_FICHEROS','app/almacenamiento');
 //  Estado: (A-Activo | B-Bloqueado |I-Inactivo )
 //const  ESTADOS = ['A' => 'Activo','B' =>'Bloqueado', 'I' => 'Inactivo'];
 

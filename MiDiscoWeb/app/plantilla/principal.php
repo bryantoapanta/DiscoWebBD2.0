@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CRUD DE USUARIOS</title>
 <link href="web/css/default.css" rel="stylesheet" type="text/css" />
 <link  rel="icon"   href="imagenes/cpu-tower.png" type="image/png">
 <script type="text/javascript" src="web/js/funciones.js"></script>
-<script type="text/javascript" src="web/js/funcionesjquery.js"></script>
+
 <script type="text/javascript" src="web/js/jquery.js"></script>
 </head>
 <body>
 <div id="container">
 <div id="header">
-<h1>MI DISCO EN LA NUBE versiÃ³n 1.0</h1>
+<h1>MI DISCO EN LA NUBE versión 1.0</h1>
 </div>
 <div id="content">
 <?= $contenido ?>
@@ -22,7 +22,7 @@
 <div id="autores"></div>
 <script type="text/javascript">
 
-//function jqueryFunction(){
+
 var x = $(document);
 x.ready(inicializarEventos);
 
@@ -87,7 +87,7 @@ function CambiaColorNormal() {
 	  x.css("font-family","sanssolid")
 }
 
-//}
+
 </script>
 </body>
 </html>

@@ -44,7 +44,7 @@ function ctlUserInicio()
                     // Cambio de modo y redireccion a verficheros
                 }
             } else {
-                $msg = "Error: usuario y contrase√±a no v√°lidos.";
+                $msg = "Error: usuario y contraseÒa no v·lidos.";
             }
         }
     }
@@ -79,7 +79,7 @@ function ctlUserBorrar()
     $msg = "";
     $user = $_GET['id'];
     if (ModeloUserDB::UserDel($user)) {
-        $msg = "El usuario se borr√≥ correctamente.";
+        $msg = "El usuario se borrÛ correctamente.";
     } else {
         $msg = "No se pudo borrar el usuario.";
     }
@@ -205,7 +205,7 @@ function ctlUserModificar()
         $estado = $datosusuario[4];
         echo $estado . include_once 'plantilla/fmodificar.php';
     }
-    // modeloUserSave();
+    
     ctlUserVerUsuarios($msg);
 }
 

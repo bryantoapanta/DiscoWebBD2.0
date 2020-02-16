@@ -1,45 +1,64 @@
-<html>
-<head>
-<title>Cuadrados de colores</title>
-<style>
-body {
-	background: silver;
-	text-align: justify;
-	font-family: Tahoma, Geneva, sans-serif;
-	font-size: 14px;
-	color: #757E82;
-}
+/*var x;
+=$(document);
+x.ready(inicializarEventos);
 
-#container {
-	margin: 0 auto;
-	width: 500px;
-	background: #fff;
-	border: solid 1px;
-}
-
-#header {
-	background: blue;
-	text-align: center;
-	padding: 20px;
-	color: white;
-	text-shadow: black 0.1em 0.1em 0.2em;
-}
-
-#content {
-	background: white;
-	clear: left;
-	padding: 20px;
-	align-content: center;
+function inicializarEventos() {
 	
+	  $(".modificacion").click(presionModificar);
+	  $(".detalle").click(presionDetalles);
+	  $(".users").click(presionCambiaColor);
+	  $(".borrador").mouseover(CambiaColorBorrar);
+	  $(".borrador").mouseout(CambiaColorNormal);
+	  $(".modificacion").mouseover(CambiaColorModificar);
+	  $(".modificacion").mouseout(CambiaColorNormal);
+	  $(".detalle").mouseover(CambiaColorDetalles);
+	  $(".detalle").mouseout(CambiaColorNormal);
 }
-table, th, td {
-  border: 1px solid black;
-} 
-</style>
-</head>
-<body>
-	<div id="container">
-		<div id="header">
-			<h1>Tablero de colores</h1>
-		</div>
-		<div id="content">
+
+function presionModificar() {
+	  alert("Usted accederÃ¡ a modificar sus datos");
+}
+
+function presionDetalles() {
+	  alert("Usted accederÃ¡ a comprobar los detalles");
+}
+
+function presionCambiaColor() {
+	  var x;
+	  x=$(this);
+	  x.css("color","#ff0000")
+	  x.css("background-color","#ffff00")
+	  x.css("font-family","courier")
+}
+
+function CambiaColorBorrar() {
+	  var x;
+	  x=$(this);
+	  x.css("color","#ffffff")
+	  x.css("background-color","#FF0000")
+	  x.css("font-family","Arial")
+}
+
+function CambiaColorModificar() {
+	  var x;
+	  x=$(this);
+	  x.css("color","#ffffff")
+	  x.css("background-color","#3b83bd")
+	  x.css("font-family","Arial")
+}
+
+function CambiaColorDetalles() {
+	  var x;
+	  x=$(this);
+	  x.css("color","#ffffff")
+	  x.css("background-color","#e5be01")
+	  x.css("font-family","Arial")
+}
+
+function CambiaColorNormal() {
+	  var x;
+	  x=$(this);
+	  x.css("color","#ffffff")
+	  x.css("background-color","#FFFFFF")
+	  x.css("font-family","sanssolid")
+}

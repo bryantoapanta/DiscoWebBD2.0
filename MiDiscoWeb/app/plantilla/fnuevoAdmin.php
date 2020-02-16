@@ -37,7 +37,7 @@ ob_start();
 			</tr>
 
 			<tr>
-				<td>Correo electrÃ³nico:
+				<td>Correo electrónico:
 				
 				<td>
 				
@@ -75,10 +75,10 @@ ob_start();
 				<td>
 				
 				<td><select name="plan" required>
-						<option value="0">BÃ¡sico</option>
+						<option value="0">Básico</option>
 						<option value="1">Profesional</option>
 						<option value="2">Premium</option>
-						<option value="3">MÃ¡ster</option>
+						<option value="3">Máster</option>
 				</select>
 				
 				<td>

@@ -7,6 +7,7 @@ class ModeloUserDB {
     
     private static $dbh = null;
     private static $consulta_user = "Select * from usuarios where id = ?";
+    private static $consulta_plan = "Select plan from usuarios where id = ?";
     private static $consulta_email = "Select * from usuarios where email = ?";
     private static $consulta_emailAntiguo = "Select email from usuarios where id = ?";
     private static $borrar_usuario = "Delete from usuarios where id = ?";
@@ -35,6 +36,22 @@ class ModeloUserDB {
         
     }
     
+    
+    public static function obtener_plan($user){
+        $stmt = self::$dbh->prepare(self::$consulta_plan);
+        $stmt->bindValue(1,$user);
+        $stmt->execute();
+        if ($stmt->rowCount() == 0 ){
+            return false;
+        }else{
+            //CREAMOS UN ARRAY ASOCIATIVO PARA LUEGO PODER OBTENER EL EMAIL
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $fila = $stmt->fetch();
+            $plan = PLANES[$fila['plan']];
+          //  echo $plan;
+            return $plan;
+        }
+    }
     
     // Comprueba usuario y contraseña son correctos (boolean)
     public static function modeloOkUser($user,$clave){
@@ -282,16 +299,43 @@ class ModeloUserDB {
         $tUserVista = [];
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $espacio = self::calcularEspacio($userid);
+        
         while ( $fila = $stmt->fetch()){
             $datosuser = [
                 $fila['nombre'],
                 $fila['email'],
                 PLANES[$fila['plan']],
-                ESTADOS[$fila['estado']]
+                ESTADOS[$fila['estado']],
+                $espacio
             ];
             $tUserVista[$fila['id']] = $datosuser;
         }
         return $tUserVista;
+    }
+    
+ 
+    
+    public static function calcularEspacio($userid):float{
+       // $directorio = "/Program Files/XAMPP/htdocs/MiDiscoWeb 9.0/app/almacenamiento/".$userid;
+        $suma=0;
+        
+        //echo $userid;
+        foreach ($_SESSION['ficheros'] as $usuario => $nombrefich) {
+            
+            if ($usuario == $userid) { // si el usuario coincide con el usuario de la sesion
+                
+                foreach ($_SESSION['ficheros'][$userid] as $nombrefich => $datos) { // realizo un for each para recorrer la tabla de archivos con sus respectivos datos.
+                    //echo "<br>" . $nombrefich;
+                    
+                    $suma=$suma+$datos[3];
+                   // echo $suma;
+                }
+            }
+        }
+        return $suma;
+     //   }
+      //  return 0;
     }
     
     public static function closeDB(){

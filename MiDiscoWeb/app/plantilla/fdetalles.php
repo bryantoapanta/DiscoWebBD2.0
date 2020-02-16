@@ -35,14 +35,18 @@ foreach ($usuarios as $clave => $datosusuario) { // clave-->usuario $datosusuari
             case 3:
                 echo "<p>Estado: ", $datosusuario[$j], "</p>";
                 break;
-
+                
             case 4:
+               
+                if ($datosusuario[2]==PLANES[0]){echo "<p>Espacio ocupado: ", $datosusuario[$j], " KB/2000 KB</p>";}
+                if ($datosusuario[2]==PLANES[1]){echo "<p>Espacio ocupado: ", $datosusuario[$j], " KB/5000 KB</p>";}
+                if ($datosusuario[2]==PLANES[2]){echo "<p>Espacio ocupado: ", $datosusuario[$j], " KB/10000 KB</p>";}
+                break;
+                
+            case 5:
                 echo "<p>Numero de ficheros: ", $datosusuario[$j], "</p>";
                 break;
 
-            case 5:
-                echo "<p>Espacio ocupado: ", $datosusuario[$j], "</p>";
-                break;
         }
     }
     ?>

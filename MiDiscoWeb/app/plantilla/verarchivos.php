@@ -7,6 +7,26 @@ ob_start();
 <div id='aviso'><b><?= (isset($msg))?$msg:"" ?></b></div>
 <center>
 	<h1 class="paginas">Ficheros Del Usuario <?=$_SESSION["user"]?></h1>
+	<h2><?php 
+	$user=$_SESSION["user"];
+	$espacio = ModeloUserDB::calcularEspacio($user);
+	$plan = modelouserdb::obtener_plan($user);
+	//echo $plan." y ".$espacio;
+	
+	switch ($plan){
+	    case "Básico":
+	        echo ($espacio/1024)."/"."2000 KB";
+	        break;
+	    case "Profesional":
+	        echo ($espacio/1024)."/"."5000 KB";
+	        break;
+	    case "Premium":
+	        echo ($espacio/1024)."/"."10000 KB";
+	        break;
+	}
+	
+	?>
+	</h2>
 	<table id="verusuarios">
 		<tr>
 		<th>Nombre Fichero</th>
@@ -34,13 +54,15 @@ $auto = $_SERVER['PHP_SELF'];
      		
      		if($j==3){//posicion 3 (tamaï¿½o archivo)
      		    
-     		    echo ".KB";
+     		    echo " KB/";
      		}
+     		
+     		
      		 ?></td>
 			<?php endfor;?>
 			<td class="borrador"  ><a href="#" onclick="confirmarBorrarfichero('<?= $datosusuario[0]."','".$clave."'"?>);">&#9760;&#9851;</a></td>
 			<td class="modificacion"><a href="#" onclick="confirmarRenombrarfichero('<?= $datosusuario[0]."','".$clave."'"?>);">&#9998;</a></td>
-			<td class="detalle"><a href="<?= $auto?>?operacion=Descargar&id=<?= $clave?>">Descargar</a></td>
+			<td class="detalle"><a href="<?= $auto?>?operacion=Descargar&id=<?= $datosusuario[0]?>">Descargar</a></td>
 		</tr>
 <?php endforeach; ?>
 </table>

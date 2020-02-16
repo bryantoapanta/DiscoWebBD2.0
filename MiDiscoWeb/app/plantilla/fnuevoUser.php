@@ -49,7 +49,7 @@ ob_start();
 				<td>Plan:				
 				<td>				
 				<td><select name="plan" required>
-						<option value="0">BÃ¡sico</option>
+						<option value="0">Básico</option>
 						<option value="1">Profesional</option>
 						<option value="2">Premium</option>
 				</select>				
